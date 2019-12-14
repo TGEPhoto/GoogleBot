@@ -6,6 +6,9 @@ from helper import member as member_role
 
 client = commands.Bot(command_prefix = "<", owner_ids=[611540017000480773])
 
+@client.command()
+async def repo(ctx):
+    await ctx.send('https://github.com/TGEPhoto/GoogleBot')
 @client.event
 async def on_member_join(member):
     await member.add_roles(member_role)
