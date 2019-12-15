@@ -2,7 +2,7 @@ import discord
 import os
 from keys import bot as BOT_TOKEN
 from discord.ext import commands
-from helper import member as member_role
+from helper import member_role as member_role
 
 client = commands.Bot(command_prefix = "<", owner_ids=[611540017000480773])
 
