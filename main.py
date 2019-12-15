@@ -15,6 +15,11 @@ async def repo(ctx):
 async def on_member_join(member):
     await member.add_roles(member_role)
 
+@client.command()
+async def info(ctx):
+    embed = discord.Embed(title="Info about Google bot", description='Library: discord.py\nCreator: TGEPhoto#9952\nOpen Source: Yes\nRepo can be found with <repo', colour=0x4285f4)
+    await ctx.send(embed=embed)
+
 @client.event
 async def on_ready():
     await client.change_presence(status=discord.Status.online, activity=discord.Game('use <help'))
