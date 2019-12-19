@@ -16,7 +16,7 @@ class Love(commands.Cog):
                     'I love you cutie',
                     'You are cute',
                     'ily comrade']
-        await ctx.send(f'{random.choice(responses)}')
+        await ctx.send(random.choice(responses))
 
 def setup(client):
     client.add_cog(Love(client))
