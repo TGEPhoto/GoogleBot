@@ -2,27 +2,24 @@ import discord
 import os
 from keys import bot as BOT_TOKEN
 from discord.ext import commands
-from helper import member_role as member_role
 
-client = commands.Bot(command_prefix = "$", owner_ids=[611540017000480773])
+client = commands.Bot(command_prefix = ".", owner_ids=[611540017000480773])
 
 @client.command()
 async def repo(ctx):
+    """
+    Sends the repository link
+    """
     await ctx.send('https://github.com/TGEPhoto/GoogleBot')
-
-#idk why is this not working but ok
-@client.event
-async def on_member_join(member):
-    await member.add_roles(member_role)
 
 @client.command()
 async def info(ctx):
-    embed = discord.Embed(title="Info about Google bot", description='Library: discord.py\nCreator: TGEPhoto#9952\nOpen Source: Yes\nRepo can be found with <repo', colour=0x4285f4)
+    embed = discord.Embed(title="Info about Google bot", description='Library: discord.py\nCreator: TGEPhoto#9952\nOpen Source: Yes\nRepo can be found with .repo', colour=0x4285f4)
     await ctx.send(embed=embed)
 
 @client.event
 async def on_ready():
-    await client.change_presence(status=discord.Status.online, activity=discord.Game('use $help'))
+    await client.change_presence(status=discord.Status.online, activity=discord.Game('use .help'))
     print('Bot is online.')
 
 @client.command()
