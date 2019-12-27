@@ -9,6 +9,9 @@ class Fun(commands.Cog):
 
     @commands.command()
     async def tip(self, ctx):
+        """
+        Sends random tips
+        """
         responses = ['Clean your camera lens before taking a photo.',
                     'Delete those blurry photos from your gallery.',
                     'Delete the apps you dont use at all.',
@@ -17,7 +20,8 @@ class Fun(commands.Cog):
                     'Remember to test your code!',
                     'Turn on dark mode, especially if you are using an AMOLED screen.',
                     'uwu this is weird',
-                    'Be careful if your phone is cracked because you might cut your fingers.']
+                    'Be careful if your phone is cracked because you might cut your fingers.',
+                    'Message my creator to add more tips!']
         await ctx.send(f'{random.choice(responses)}')
 
 def setup(client):
