@@ -14,6 +14,9 @@ async def repo(ctx):
 
 @client.command()
 async def info(ctx):
+    """
+    Sends info about the bot
+    """
     embed = discord.Embed(title="Info about Google bot", description='Library: discord.py\nCreator: TGEPhoto#9952\nOpen Source: Yes\nRepo can be found with .repo', colour=0x4285f4)
     await ctx.send(embed=embed)
 
