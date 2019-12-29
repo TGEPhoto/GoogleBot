@@ -29,7 +29,7 @@ class Fun(commands.Cog):
         """
         Sends a cookie to the user
         """
-        await ctx.send(f'{member.name} has recieved a cookie from {ctx.author.mention}!')
+        await ctx.send(f'{member.name}#{member.discriminator} has recieved a cookie from {ctx.author.mention}!')
     
 def setup(client):
     client.add_cog(Fun(client))
