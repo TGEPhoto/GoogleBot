@@ -15,7 +15,7 @@ class Fun(commands.Cog):
         """
         Sends random tips
         """
-        with open(f'{RES_DIR}/love.txt', 'r') as f:
+        with open(f'{RES_DIR}/tips.txt', 'r') as f:
             await ctx.send(random.choice(f.readlines()))
 
     @commands.command()
