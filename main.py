@@ -3,40 +3,48 @@ import os
 from keys import bot as BOT_TOKEN
 from discord.ext import commands
 
-client = commands.Bot(command_prefix = ".", owner_ids=[611540017000480773])
+bot = commands.Bot(command_prefix=".", owner_ids=[611540017000480773, 529535587728752644])
 
-@client.command()
-async def repo(ctx):
-    """
-    Sends the repository link
-    """
-    await ctx.send('https://github.com/TGEPhoto/GoogleBot')
 
-@client.command()
+@bot.command()
 async def info(ctx):
     """
     Sends info about the bot
     """
-    embed = discord.Embed(title="Info about Google bot", description='Library: discord.py\nCreator: TGEPhoto#9952\nOpen Source: Yes\nRepo can be found with .repo', colour=0x4285f4)
+    embed = discord.Embed(title="Info about Google bot",
+                          description='Library: discord.py\nCreator: TGEPhoto#9952\nOpen Source: Yes\nRepo can be found with .repo',
+                          colour=0x4285f4)
     await ctx.send(embed=embed)
 
-@client.event
+
+@bot.event
 async def on_ready():
-    await client.change_presence(status=discord.Status.online, activity=discord.Game('use .help'))
+    await bot.change_presence(status=discord.Status.online, activity=discord.Game('use .help'))
     print('Bot is online.')
 
-@client.command()
+
+@bot.command()
 @commands.is_owner()
 async def load(ctx, extension):
-    client.load_extension(f'cogs.{extension}')
+    bot.load_extension(f'cogs.{extension}')
+    await ctx.send('\N{WHITE HEAVY CHECK MARK}')
 
-@client.command()
+
+@bot.command()
 @commands.is_owner()
 async def unload(ctx, extension):
-    client.unload_extension(f'cogs.{extension}')
+    bot.unload_extension(f'cogs.{extension}')
+    await ctx.send('\N{WHITE HEAVY CHECK MARK}')
+
+
+@bot.command(aliases=['close'])
+@commands.is_owner()
+async def close(ctx):
+    await bot.logout()
+
 
 for filename in os.listdir('./cogs'):
     if filename.endswith('.py'):
-        client.load_extension(f'cogs.{filename[:-3]}')
+        bot.load_extension(f'cogs.{filename[:-3]}')
 
-client.run(BOT_TOKEN)
+bot.run(BOT_TOKEN)
