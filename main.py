@@ -1,3 +1,4 @@
+import aiohttp
 import discord
 import os
 from keys import bot as BOT_TOKEN
@@ -21,6 +22,7 @@ async def info(ctx):
 async def on_ready():
     await bot.change_presence(status=discord.Status.online, activity=discord.Game('use .help'))
     print('Bot is online.')
+    bot.client_session = aiohttp.ClientSession()
 
 
 @bot.command()
@@ -37,9 +39,11 @@ async def unload(ctx, extension):
     await ctx.send('\N{WHITE HEAVY CHECK MARK}')
 
 
-@bot.command(aliases=['close'])
+@bot.command(aliases=['exit'])
 @commands.is_owner()
 async def close(ctx):
+    await ctx.send('Closing...')
+    await bot.client_session.close()
     await bot.logout()
 
 
