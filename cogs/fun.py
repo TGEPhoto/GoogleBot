@@ -22,7 +22,7 @@ class Fun(commands.Cog):
     async def cookie(self, ctx, member: discord.Member):
         """Sends a cookie to the user"""
 
-        await ctx.send(f'{member.name}#{member.discriminator} has received a cookie from {ctx.author.mention}!')
+        await ctx.send(f'\N{COOKIE}\N{COOKIE}\N{COOKIE}{member.name}#{member.discriminator} has received a cookie from {ctx.author.mention}! *nom nom nom*')
 
 
 def setup(bot):
