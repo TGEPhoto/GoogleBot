@@ -43,7 +43,19 @@ class Fun(commands.Cog):
     @cookie.error
     async def cookie_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("You didn't tell me who to give the cookie!")
+            await ctx.send("You didn't tell me who to give the cookie! Maybe you shiuld get cookies instead <3")
+
+    @commands.command()
+    async def boop(self, ctx, member: discord.Member):
+        """
+        Boops a member
+        """
+        await ctx.send(f'*boop boop* {ctx.author.mention} has booped {member.name}#{member.discriminator}!')
+
+    @boop.error
+    async def boop_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send("You didn't tell me who to boop! Maybe we should boop you instead?")
 
 def setup(bot):
     bot.add_cog(Fun(bot))
