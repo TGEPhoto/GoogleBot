@@ -6,6 +6,16 @@ from discord.ext import commands
 
 bot = commands.Bot(command_prefix=".", owner_ids=[611540017000480773, 529535587728752644])
 
+@bot.command()
+async def guild(ctx):
+    """
+    Sends invite to bot development guild in dm
+    """
+    embed = discord.Embed(title="Do you want to contribute to development of the bot?",
+                          description="Come and join our guild!\nSuggest ideas for new commands and help us make the bot better.",
+                          colour=0x0f9d58)
+    embed.add_field(name="Invite", value="https://discord.gg/G996vhj")
+    await ctx.send(embed=embed)
 
 @bot.command()
 async def info(ctx):
@@ -16,7 +26,6 @@ async def info(ctx):
                           description='Library: discord.py\nCreator: TGEPhoto#9952\nOpen Source: Yes\nRepo can be found with .repo',
                           colour=0x4285f4)
     await ctx.send(embed=embed)
-
 
 @bot.event
 async def on_ready():
