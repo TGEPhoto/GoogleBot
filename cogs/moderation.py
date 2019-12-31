@@ -33,7 +33,7 @@ class Moderation(commands.Cog):
         await member.ban(reason=reason)
     
     @ban.error
-    async def do_repeat_handler(self, ctx, error):
+    async def ban_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             await ctx.send("You didn't give me a member to ban!")
 
@@ -56,7 +56,7 @@ class Moderation(commands.Cog):
         await member.kick(reason=reason)
 
     @kick.error
-    async def do_repeat_handler(self, ctx, error):
+    async def kick_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             await ctx.send("You didn't give me a member to kick!")
 
