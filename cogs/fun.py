@@ -11,6 +11,15 @@ class Fun(commands.Cog):
         self.bot = bot
 
     @commands.command()
+    async def say(self, ctx, *, message):
+        """
+        Makes the bot say something
+        """
+        await ctx.channel.trigger_typing()
+        sentMessage = await ctx.send(message)
+        await ctx.message.delete()
+
+    @commands.command()
     async def tip(self, ctx):
         """
         Sends random tips
