@@ -26,7 +26,7 @@ class Rules(commands.Cog):
 
         embed = discord.Embed(
             title=f"Rule {number}",
-            description=self.rules[number + 1],
+            description=self.rules[number - 1],
             colour=functions.random_discord_color(),
         )
         await ctx.send(embed=embed)
