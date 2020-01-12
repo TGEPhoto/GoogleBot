@@ -20,6 +20,13 @@ class Fun(commands.Cog):
         await ctx.message.delete()
 
     @commands.command()
+    async def leesong(self, ctx):
+        """
+        Sends link to The STD Song
+        """
+        await ctx.send('https://youtu.be/uukvEcd25oQ')
+
+    @commands.command()
     async def kidnap(self, ctx, member: discord.Member):
         """
         Apparently kidnaps the member
