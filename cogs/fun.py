@@ -24,7 +24,7 @@ class Fun(commands.Cog):
         """
         Apparently kidnaps the member
         """
-        await ctx.send(f'\N{IMP}\N{PISTOL} Get in the van, kiddo! {member.name}#{member.discriminator}')
+        await ctx.send(f'\N{IMP}\N{PISTOL} Get in the back of my van, you whore! {member.name}#{member.discriminator}')
 
     @kidnap.error
     async def kidnap_error(self, ctx, error):
