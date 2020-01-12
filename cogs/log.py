@@ -25,6 +25,9 @@ class Log(commands.Cog):
         if not self.is_snootyboop_land(after.guild):
             return
 
+        if after.author.bot:
+            return
+
         embed = discord.Embed(title=f'Message by {after.author} in #{after.channel} was edited',
                               description=f'**Before**:\n{before.clean_content}\n**After**:\n{after.clean_content}',
                               color=functions.random_discord_color(), timestamp=after.edited_at)
@@ -35,6 +38,9 @@ class Log(commands.Cog):
     @commands.Cog.listener()
     async def on_message_delete(self, message):
         if not self.is_snootyboop_land(message.guild):
+            return
+
+        if message.author.bot:
             return
 
         embed = discord.Embed(title=f'Message by {message.author} in #{message.channel} was deleted',
