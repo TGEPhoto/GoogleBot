@@ -20,6 +20,18 @@ class Fun(commands.Cog):
         await ctx.message.delete()
 
     @commands.command()
+    async def kidnap(self, ctx, member: discord.Member):
+        """
+        Apparently kidnaps the member
+        """
+        await ctx.send(f'\N{IMP}\N{PISTOL} Get in the van, kiddo! {member.name}#{member.discriminator}')
+
+    @kidnap.error
+    async def kidnap_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send('You gotta mention someone!')
+
+    @commands.command()
     async def tip(self, ctx):
         """
         Sends random tips
