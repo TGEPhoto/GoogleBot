@@ -11,6 +11,18 @@ class Fun(commands.Cog):
         self.bot = bot
 
     @commands.command()
+    async def poop(self, ctx, member: discord.Member):
+        """
+        Poops the person. Very shitty command
+        """
+        await ctx.send(f'\N{PILE OF POO}\N{PILE OF POO}\N{PILE OF POO} {ctx.author.mention} has pooped on {member.name}#{member.discriminator}')
+
+    @poop.error
+    async def poop_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send('You have to poop someone!')
+
+    @commands.command()
     async def say(self, ctx, *, message):
         """
         Makes the bot say something
