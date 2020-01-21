@@ -28,7 +28,7 @@ class Fun(commands.Cog):
         Makes the bot say something
         """
         await ctx.channel.trigger_typing()
-        sentMessage = await ctx.send(message)
+        await ctx.send(message)
         await ctx.message.delete()
 
     @commands.command()
@@ -38,12 +38,12 @@ class Fun(commands.Cog):
         """
         await ctx.send('https://youtu.be/uukvEcd25oQ')
 
-    @commands.command()
-    async def whosjoe(self, ctx):
+    @commands.command(aliases=["who's"])
+    async def whos(self, ctx, *, message):
         """
         Who's Joe? JOE MAMA
         """
-        await ctx.send('JOE MAMA!')
+        await ctx.send(f'{message} MAMA')
 
     @commands.command()
     async def kidnap(self, ctx, member: discord.Member):
