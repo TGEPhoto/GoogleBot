@@ -39,11 +39,14 @@ class Fun(commands.Cog):
         await ctx.send('https://youtu.be/uukvEcd25oQ')
 
     @commands.command(aliases=["who's"])
-    async def whos(self, ctx, *, message):
+    async def whos(self, ctx, *, msg):
         """
         Who's Joe? JOE MAMA
         """
-        await ctx.send(f'{message} MAMA')
+        big = str(msg).upper()
+        await ctx.send(f'{big} MAMA!')
+
+    #<:ecksdee:622748248737841152>
 
     @commands.command()
     async def kidnap(self, ctx, member: discord.Member):
