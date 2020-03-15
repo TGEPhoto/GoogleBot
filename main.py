@@ -28,6 +28,12 @@ async def info(ctx):
     await ctx.send(embed=embed)
 
 @bot.event
+async def on_member_join(member):
+    role = discord.utils.get(member.guild.roles, name='snoot')
+    await member.add_roles(role)
+    print(f'{member} has joined')
+
+@bot.event
 async def on_ready():
     await bot.change_presence(status=discord.Status.online, activity=discord.Game('use .help'))
     print('Bot is online.')

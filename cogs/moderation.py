@@ -20,7 +20,7 @@ class Moderation(commands.Cog):
         """
         Bans a user and dms the reason
         """
-        msg = "You have been banned from snootyboop land"
+        msg = "You have been banned from Google"
         if reason:
             msg += f" for {reason}"
 
@@ -43,7 +43,7 @@ class Moderation(commands.Cog):
         """
         Kicks a user and dms the reason
         """
-        msg = "You have been kicked from snootyboop land"
+        msg = "You have been kicked from Google"
         if reason:
             msg += f" for {reason}"
 

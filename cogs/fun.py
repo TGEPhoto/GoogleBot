@@ -11,13 +11,54 @@ class Fun(commands.Cog):
         self.bot = bot
 
     @commands.command()
+    async def poop(self, ctx, member: discord.Member):
+        """
+        Poops the person. Very shitty command
+        """
+        await ctx.send(f'\N{PILE OF POO}\N{PILE OF POO}\N{PILE OF POO} {ctx.author.mention} has pooped on {member.name}#{member.discriminator}')
+
+    @poop.error
+    async def poop_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send('You have to poop someone!')
+
+    @commands.command()
     async def say(self, ctx, *, message):
         """
         Makes the bot say something
         """
         await ctx.channel.trigger_typing()
-        sentMessage = await ctx.send(message)
+        await ctx.send(message)
         await ctx.message.delete()
+
+    @commands.command()
+    async def leesong(self, ctx):
+        """
+        Sends link to The STD Song
+        """
+        await ctx.send('https://youtu.be/uukvEcd25oQ')
+
+    @commands.command(aliases=["who's"])
+    async def whos(self, ctx, *, msg):
+        """
+        Who's Joe? JOE MAMA
+        """
+        big = str(msg).upper()
+        await ctx.send(f'{big} MAMA!')
+
+    #<:ecksdee:622748248737841152>
+
+    @commands.command()
+    async def kidnap(self, ctx, member: discord.Member):
+        """
+        Apparently kidnaps the member
+        """
+        await ctx.send(f'\N{IMP}\N{PISTOL} Get in the back of my van, you whore! {member.name}#{member.discriminator}')
+
+    @kidnap.error
+    async def kidnap_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send('You gotta mention someone!')
 
     @commands.command()
     async def tip(self, ctx):
