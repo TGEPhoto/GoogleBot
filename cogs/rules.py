@@ -14,7 +14,8 @@ class Rules(commands.Cog):
         if self.rules is None:
             print('yes')
             channel = ctx.guild.get_channel(658739523370483742)
-            message = await channel.fetch_message(658743635751338044)
+            message = await channel.history(limit=1).flatten()
+            message = message[0]
 
             def filter_pred(item: str):
                 split_rule = item.split(' ')
