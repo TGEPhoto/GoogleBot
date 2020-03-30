@@ -30,7 +30,7 @@ class Log(commands.Cog):
 
         embed = discord.Embed(title=f'Message by {after.author} in #{after.channel} was edited',
                               description=f'**Before**:\n{before.clean_content}\n**After**:\n{after.clean_content}',
-                              color=functions.random_discord_color(), timestamp=after.edited_at)
+                              color=0xc5f4a3, timestamp=after.edited_at)
         embed.set_author(name=after.author, icon_url=after.author.avatar_url)
         embed.add_field(name='Channel', value=after.channel.mention)
         await self.trigger_log_webhook(embed, username='Message edited', guild=after.guild)
@@ -45,7 +45,7 @@ class Log(commands.Cog):
 
         embed = discord.Embed(title=f'Message by {message.author} in #{message.channel} was deleted',
                               description=message.clean_content,
-                              color=functions.random_discord_color(), timestamp=message.created_at)
+                              color=0xff0000, timestamp=message.created_at)
         embed.set_author(name=message.author, icon_url=message.author.avatar_url)
         embed.add_field(name='Channel', value=message.channel.mention)
         await self.trigger_log_webhook(embed, username='Message edited', guild=message.guild)
