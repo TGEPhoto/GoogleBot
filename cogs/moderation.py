@@ -20,9 +20,9 @@ class Moderation(commands.Cog):
         """
         Bans a user and dms the reason
         """
-        msg = "You have been banned from Google"
+        msg = "You have been banned from snootyboop land!"
         if reason:
-            msg += f" for {reason}"
+            msg += f"Reason: {reason}"
 
         try:
             await member.send(msg)
@@ -43,9 +43,9 @@ class Moderation(commands.Cog):
         """
         Kicks a user and dms the reason
         """
-        msg = "You have been kicked from Google"
+        msg = "You have been kicked from snootyboop land!"
         if reason:
-            msg += f" for {reason}"
+            msg += f"Reason: {reason}"
 
         try:
             await member.send(msg)
